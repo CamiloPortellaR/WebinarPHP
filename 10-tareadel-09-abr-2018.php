@@ -1,58 +1,41 @@
 <?php
-//Autor: Claudio Morales
-//Fecha: 5 abril 2018
-//Video del Webinar: https://www.facebook.com/ComunidadDePeHPe/videos/1488275151282610/
-
-class ElPadre
-  {
-      public function metodoDelPadre()
-        {
-        echo "desde el padre<br>";
-      }
-  }
-class ElHijo extends ElPadre
-  {
-      public function metodoDelPadre()
-        {
-          echo "desde el hijo";
-        }
-      public function otroMetodo()
-      {
-        parent::metodoDelPadre();
-      }
-  }
-//$objeto = new ElHijo();
-//$objeto->otroMetodo();
-//------ Metodos estaticos
-class OtraClase
-{
-  public static function metodoSinObjeto()
-  {
-    echo "Sin objeto";
-  }
-}
-///OtraClase::metodoSinObjeto();
 
 class OperacionesAritmeticas
   {
-     public function suma($uno, $dos, $tres, $cuatro, $cinco)
+     public function arreglo()
+     {
+       $arreglo = array("Valor 1","Valor 2","Valor 3","Valor 4","Valor 5");
+       //echo $arreglo[7];
+       
+       $arreglo2 = array(1=>"pos1",2=>"pos 2",0=>"pos 0");
+       //echo $arreglo2[0];
+       
+       $arreglo3[0]="pos 0";
+       $arreglo3[4]="pos 4";
+       //echo $arreglo3[4];
+       
+       $arreglo4 = array("pos 1"=>"Claudio","pos 2"=>"Mario","pos 3"=>"Maria");
+       echo $arreglo4["pos 3"];
+     }
+  
+     public function suma($datos_r)
       {
-        $resultado = $uno + $dos+ $tres +$cuatro+$cinco;
+        $resultado = $datos_r[0]+$datos_r[1]+$datos_r[2]+$datos_r[3]+$datos_r[4];
         return $resultado;
       }
-       public function resta($uno, $dos, $tres, $cuatro, $cinco)
+       public function resta($datos_r)
       {
-        $resultado = $uno - $dos - $tres - $cuatro - $cinco;
+        $resultado = $datos_r[0]-$datos_r[1]-$datos_r[2]-$datos_r[3]-$datos_r[4];
         return $resultado;
       }
-       public function multi($uno, $dos, $tres, $cuatro, $cinco)
+       public function multi($datos_r)
       {
-        $resultado = $uno * $dos * $tres * $cuatro * $cinco;
+        $resultado = $datos_r[0]*$datos_r[1]*$datos_r[2]*$datos_r[3]*$datos_r[4];
         return $resultado;
       }
-        public function divide($uno, $dos, $tres, $cuatro, $cinco)
+        public function divide($datos_r)
       {
-        $resultado = $uno / $dos / $tres / $cuatro / $cinco;
+        $resultado = $datos_r[0]/$datos_r[1]/$datos_r[2]/$datos_r[3]/$datos_r[4];
         return $resultado;
       }
     public function mostrarvalor()
@@ -62,17 +45,11 @@ class OperacionesAritmeticas
       
   }
 
+$datos= array(5,1,2,3,4);
+
 $objetoOperaciones = new OperacionesAritmeticas();
-echo "<br>1 el resultado es:".$objetoOperaciones->suma(2,2,2,2,2);
-echo "<br>2 el resultado es:".$objetoOperaciones->resta(2,2,2,2,2);
-echo "<br>3 el resultado es:".$objetoOperaciones->multi(2,2,2,2,2);
-echo "<br>4 el resultado es:".$objetoOperaciones->suma(2,2,2,2,2);
-
-//Tarea
-//Hacer los metodos de operaciones basicas:
-//Suma, Resta, División y Multiplicacion
-//Los metodos deben recibir hasta 5 elementos para las operaciones
-  
-
-
-
+echo "La suma es :".$objetoOperaciones->suma($datos)."</br>";
+echo "La resta es :".$objetoOperaciones->resta($datos)."</br>";
+echo "La multiplicacion es :".$objetoOperaciones->multi($datos)."</br>";
+echo "La divicion es :".$objetoOperaciones->divide($datos)."</br>";
+?>
